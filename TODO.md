@@ -4,8 +4,8 @@ Ideas and things to add to the project.
 - [ ] Optional + Async
   - [ ] `Filter`
   - [ ] `ToLeftEither`, `ToRightEither`
-  - [ ] `Contains`, `Exists`
-  - [ ] `SomeWhen`, `NoneWhen`
+  - [ ] `Contains`,
+  - [X] `SomeWhen`, `NoneWhen`
   - [ ] `NotNull` - Return None if Option value is null.
   - [ ] `ValueOrDefault`, `ValueOrDefaultAsync`
   - [ ] `ValueOrAsync`

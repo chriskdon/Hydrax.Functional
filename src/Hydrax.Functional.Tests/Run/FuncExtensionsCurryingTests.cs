@@ -44,5 +44,75 @@ namespace Hydrax.Functional.Tests.Run
 
             Assert.Equal("abcd", result);
         }
+
+        /// <summary>
+        /// Test that a 5 argument function can be curried.
+        /// </summary>
+        [Fact]
+        public void Curry_Arg5_Curries()
+        {
+            Func<string, string, string, string, string, string> arg2 = 
+                (a, b, c, d, e) => a + b + c + d + e;
+
+            var result = arg2.Curry()("a")("b")("c")("d")("e");
+
+            Assert.Equal("abcde", result);
+        }
+
+        /// <summary>
+        /// Test that a 6 argument function can be curried.
+        /// </summary>
+        [Fact]
+        public void Curry_Arg6_Curries()
+        {
+            Func<string, string, string, string, string, string, string> arg2 = 
+                (a, b, c, d, e, f) => a + b + c + d + e + f;
+
+            var result = arg2.Curry()("a")("b")("c")("d")("e")("f");
+
+            Assert.Equal("abcdef", result);
+        }
+
+        /// <summary>
+        /// Test that a 7 argument function can be curried.
+        /// </summary>
+        [Fact]
+        public void Curry_Arg7_Curries()
+        {
+            Func<string, string, string, string, string, string, string, string> arg2 = 
+                (a, b, c, d, e, f, g) => a + b + c + d + e + f + g;
+
+            var result = arg2.Curry()("a")("b")("c")("d")("e")("f")("g");
+
+            Assert.Equal("abcdefg", result);
+        }
+
+        /// <summary>
+        /// Test that a 8 argument function can be curried.
+        /// </summary>
+        [Fact]
+        public void Curry_Arg8_Curries()
+        {
+            Func<string, string, string, string, string, string, string, string, string> arg2 = 
+                (a, b, c, d, e, f, g, h) => a + b + c + d + e + f + g + h;
+
+            var result = arg2.Curry()("a")("b")("c")("d")("e")("f")("g")("h");
+
+            Assert.Equal("abcdefgh", result);
+        }
+
+        /// <summary>
+        /// Test that a 9 argument function can be curried.
+        /// </summary>
+        [Fact]
+        public void Curry_Arg9_Curries()
+        {
+            Func<string, string, string, string, string, string, string, string, string, string> arg2 = 
+                (a, b, c, d, e, f, g, h, i) => a + b + c + d + e + f + g + h + i;
+
+            var result = arg2.Curry()("a")("b")("c")("d")("e")("f")("g")("h")("i");
+
+            Assert.Equal("abcdefghi", result);
+        }
     }
 }

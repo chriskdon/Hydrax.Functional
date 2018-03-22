@@ -4,7 +4,7 @@ using Hydrax.Functional;
 
 namespace Hydrax.Functional.Tests.Run
 {
-    public class CurryExtensionsTests
+    public class FuncExtensionsCurryingTests
     { 
         /// <summary>
         /// Test that a 2 argument function can be curried.

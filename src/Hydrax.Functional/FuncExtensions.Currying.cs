@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Hydrax.Functional
 {
-    public static class CurryExtensions
+    public static partial class FuncExtensions
     {
         /// <summary>
         /// Curry function.

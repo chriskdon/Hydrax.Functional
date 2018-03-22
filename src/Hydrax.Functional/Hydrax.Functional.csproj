@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Title>Hydrax.Functional</Title>
+    <Version>0.1.0-alpha</Version>
+    <Authors>Chris Kellendonk</Authors>
+    <Product>Hydrax</Product>
+    <Description>Library that supports functional programming patterns in C#.</Description>
+    <Copyright>Copyright © 2018</Copyright>
+
+    <PackageTitle>Hydrax.Functional: Functional utilities.</PackageTitle>
+    <PackageProjectUrl>https://github.com/chriskdon/hydrax/tree/master/src/Hydrax.Functional</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/chriskdon/hydrax</RepositoryUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageTags>Functional Optional Either Some None Result Left Right Monadic</PackageTags>
+    <PackageLicenseUrl>https://github.com/chriskdon/hydrax/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageReleaseNotes>NIGHTLY build, not stable.</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+</Project>

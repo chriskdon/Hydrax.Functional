@@ -280,7 +280,7 @@ namespace Hydrax.Functional
         /// </summary>
         /// <param name="optional">Optional to test.</param>
         /// <param name="predicate">Predicate to check if true.</param>
-        /// <returns>Some optional if predicate is true; None otherwise.</returns>
+        /// <returns>None optional if predicate is true; original optional otherwise.</returns>
         public static Optional<TValue> NoneWhen<TValue>(
             this Optional<TValue> optional,
             Func<TValue, bool> predicate)
@@ -291,6 +291,25 @@ namespace Hydrax.Functional
             }
 
             return optional;
+        }
+
+        /// <summary>
+        /// When the predicate returns true and the optional is a Some, the
+        /// Some will be returned. Otherwise None is returned.
+        /// </summary>
+        /// <param name="optional">Optional to test.</param>
+        /// <param name="predicate">Predicate to check if true.</param>
+        /// <returns>Optional result.</returns>
+        public static Optional<TValue> SomeWhen<TValue>(
+            this Optional<TValue> optional,
+            Func<TValue, bool> predicate)
+        {
+            if(optional.Match(predicate, () => false)) 
+            {
+                return optional;
+            }
+
+            return Optional.None<TValue>();
         }
 
         /// <summary>

@@ -463,5 +463,40 @@ namespace Hydrax.Functional.Tests.Run
 
             Assert.False(result.HasValue);
         }
+
+        /// <summary>
+        /// Test that when the predicate returns true that a Some optional
+        /// is returned from a Some.
+        /// </summary>
+        [Fact]
+        public void SomeWhen_TruePredicate_CreatesSomeFromSome()
+        {
+            var result = 100.Some().SomeWhen(p => p > 50);
+
+            Assert.Equal(100, result.ValueOrThrow());
+        }
+
+        /// <summary>
+        /// Test that when the predicate returns false that a None optional
+        /// is returned from a Some.
+        /// </summary>
+        [Fact]
+        public void SomeWhen_FalsePredicate_CreatesNoneFromSome()
+        {
+            var result = 100.Some().SomeWhen(p => p < 50);
+
+            Assert.False(result.HasValue);
+        }
+
+        /// <summary>
+        /// Test that a None optional is returned from a None.
+        /// </summary>
+        [Fact]
+        public void SomeWhen_Predicate_CreatesNoneFromNone()
+        {
+            var result = Optional.None<int>().SomeWhen(p => p > 50);
+
+            Assert.False(result.HasValue);
+        }
     }
 }

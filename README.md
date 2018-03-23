@@ -1,5 +1,7 @@
 # Hydrax.Functional
 
+![Travis Tests](https://travis-ci.org/chriskdon/Hydrax.Functional.svg?branch=master)
+
 A utility library that helps to support a functional style programming pattern
 while still remaining pragmatic and useful in C#.
 

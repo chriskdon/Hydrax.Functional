@@ -13,10 +13,7 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageTags>Functional Partial Curry Optional Either Some None Result Left Right Monadic</PackageTags>
     <PackageLicenseUrl>https://github.com/chriskdon/Hydrax.Functional/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageReleaseNotes>
-      This is an ALPHA build. It is unstable and will most likely have many
-      breaking changes in future releases.
-    </PackageReleaseNotes>
+    <PackageReleaseNotes>This is an ALPHA build. It is unstable and will most likely have many breaking changes in future releases.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup>

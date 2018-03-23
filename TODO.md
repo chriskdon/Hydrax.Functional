@@ -21,6 +21,10 @@ Ideas and things to add to the project.
 - [ ] Function Composition
   - [X] Currying
   - [ ] Partial Application
+    - [X] Partial Right 1 Free Arg
+    - [ ] Partial Right 2 Free Args
+    - [ ] Partial Left 1 Free Arg
+    - [ ] Partial Left 2 Free Args
 - [ ] Matching
     - [ ] Predicate Based
     - [ ] Type Based

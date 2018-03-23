@@ -4,7 +4,7 @@ using Hydrax.Functional;
 
 namespace Hydrax.Functional.Tests.Run
 {
-    public class FuncExtensionsPartialTests
+    public class FuncExtensionsPartialLTests
     { 
         /// <summary>
         /// Test that a 2 argument function can be partially applied to left.

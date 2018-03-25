@@ -196,8 +196,8 @@ These functions may throw an exception when used.
 ```c#
 using Hydrax.Functional.Unsafe;
 
-var value = either.ValueLeftOrThrow();
-var value = either.ValueRightOrThrow();
+var value = either.LeftValueOrThrow();
+var value = either.RightValueOrThrow();
 ```
 
 ## Result
@@ -274,5 +274,5 @@ These functions may throw an exception when used.
 ```c#
 using Hydrax.Functional.Unsafe;
 
-var failValue = either.ValueFailureOrThrow();
+var failValue = either.FailureValueOrThrow();
 ```

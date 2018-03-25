@@ -16,7 +16,7 @@ namespace Hydrax.Functional.Tests.Run
             var result = "test".Left<string, int>();
 
             Assert.True(result.IsLeft);
-            Assert.Equal("test", result.ValueLeftOrThrow());
+            Assert.Equal("test", result.LeftValueOrThrow());
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Hydrax.Functional.Tests.Run
             var result = "test".Right<int, string>();
 
             Assert.True(result.IsRight);
-            Assert.Equal("test", result.ValueRightOrThrow());
+            Assert.Equal("test", result.RightValueOrThrow());
         }
 
         /// <summary>
@@ -128,7 +128,7 @@ namespace Hydrax.Functional.Tests.Run
             var value = Either.Left<string, string>("test")
                 .MapLeft(str => str + "_mapped");
 
-            Assert.Equal("test_mapped", value.ValueLeftOrThrow());
+            Assert.Equal("test_mapped", value.LeftValueOrThrow());
         }
 
         /// <summary>
@@ -140,7 +140,7 @@ namespace Hydrax.Functional.Tests.Run
             var value = Either.Right<string, string>("test")
                 .MapLeft(str => str + "_mapped");
 
-            Assert.Equal("test", value.ValueRightOrThrow());
+            Assert.Equal("test", value.RightValueOrThrow());
         }
 
         /// <summary>
@@ -152,7 +152,7 @@ namespace Hydrax.Functional.Tests.Run
             var value = Either.Right<string, string>("test")
                 .MapRight(str => str + "_mapped");
 
-            Assert.Equal("test_mapped", value.ValueRightOrThrow());
+            Assert.Equal("test_mapped", value.RightValueOrThrow());
         }
 
         /// <summary>
@@ -164,7 +164,7 @@ namespace Hydrax.Functional.Tests.Run
             var value = Either.Left<string, string>("test")
                 .MapRight(str => str + "_mapped");
 
-            Assert.Equal("test", value.ValueLeftOrThrow());
+            Assert.Equal("test", value.LeftValueOrThrow());
         }
 
         /// <summary>
@@ -176,7 +176,7 @@ namespace Hydrax.Functional.Tests.Run
             var value = await Either.Left<string, string>("test")
                 .MapLeftAsync(async str => str + "_mapped");
 
-            Assert.Equal("test_mapped", value.ValueLeftOrThrow());
+            Assert.Equal("test_mapped", value.LeftValueOrThrow());
         }
 
         /// <summary>
@@ -188,7 +188,7 @@ namespace Hydrax.Functional.Tests.Run
             var value = await Either.Right<string, string>("test")
                 .MapLeftAsync(async str => str + "_mapped");
 
-            Assert.Equal("test", value.ValueRightOrThrow());
+            Assert.Equal("test", value.RightValueOrThrow());
         }
 
         /// <summary>
@@ -200,7 +200,7 @@ namespace Hydrax.Functional.Tests.Run
             var value = await Either.Right<string, string>("test")
                 .MapRightAsync(async str => str + "_mapped");
 
-            Assert.Equal("test_mapped", value.ValueRightOrThrow());
+            Assert.Equal("test_mapped", value.RightValueOrThrow());
         }
 
         /// <summary>
@@ -212,7 +212,7 @@ namespace Hydrax.Functional.Tests.Run
             var value = await Either.Left<string, string>("test")
                 .MapRightAsync(async str => str + "_mapped");
 
-            Assert.Equal("test", value.ValueLeftOrThrow());
+            Assert.Equal("test", value.LeftValueOrThrow());
         }
 
         /// <summary>
@@ -225,7 +225,7 @@ namespace Hydrax.Functional.Tests.Run
                 .MapLeftAsync(async str => str + "_mapped")
                 .MapLeftAsync(async str => str + "_mapped");
 
-            Assert.Equal("test_mapped_mapped", value.ValueLeftOrThrow());
+            Assert.Equal("test_mapped_mapped", value.LeftValueOrThrow());
         }
 
         /// <summary>
@@ -238,7 +238,7 @@ namespace Hydrax.Functional.Tests.Run
                 .MapRightAsync(async str => str + "_mapped")
                 .MapRightAsync(async str => str + "_mapped");
 
-            Assert.Equal("test_mapped_mapped", value.ValueRightOrThrow());
+            Assert.Equal("test_mapped_mapped", value.RightValueOrThrow());
         }
 
         /// <summary>
@@ -251,7 +251,7 @@ namespace Hydrax.Functional.Tests.Run
             var result = Either.Left<string, int>("test")
                 .FlatMapLeft(str => (str + "_mapped").Left<string, int>());
 
-            Assert.Equal("test_mapped", result.ValueLeftOrThrow());
+            Assert.Equal("test_mapped", result.LeftValueOrThrow());
         }
 
         /// <summary>
@@ -264,7 +264,7 @@ namespace Hydrax.Functional.Tests.Run
             var result = Either.Left<string, int>("test")
                 .FlatMapLeft(str => 100.Right<int, int>());
 
-            Assert.Equal(100, result.ValueRightOrThrow());
+            Assert.Equal(100, result.RightValueOrThrow());
         }
 
         /// <summary>
@@ -277,7 +277,7 @@ namespace Hydrax.Functional.Tests.Run
             var result = Either.Right<int, string>("test")
                 .FlatMapRight(str => (str + "_mapped").Right<int, string>());
 
-            Assert.Equal("test_mapped", result.ValueRightOrThrow());
+            Assert.Equal("test_mapped", result.RightValueOrThrow());
         }
 
         /// <summary>
@@ -290,7 +290,7 @@ namespace Hydrax.Functional.Tests.Run
             var result = Either.Right<int, string>("test")
                 .FlatMapRight(str => 100.Left<int, int>());
 
-            Assert.Equal(100, result.ValueLeftOrThrow());
+            Assert.Equal(100, result.LeftValueOrThrow());
         }
 
         /// <summary>
@@ -303,7 +303,7 @@ namespace Hydrax.Functional.Tests.Run
                 .FlatMapLeftAsync(async left => (left + "_mapped").Left<string, int>())
                 .FlatMapLeftAsync(async left => (left + "_mapped").Left<string, int>());
 
-            Assert.Equal("test_mapped_mapped", result.ValueLeftOrThrow());
+            Assert.Equal("test_mapped_mapped", result.LeftValueOrThrow());
         }
 
         /// <summary>
@@ -316,7 +316,7 @@ namespace Hydrax.Functional.Tests.Run
                 .FlatMapRightAsync(async left => (left + "_mapped").Right<int, string>())
                 .FlatMapRightAsync(async left => (left + "_mapped").Right<int, string>());
 
-            Assert.Equal("test_mapped_mapped", result.ValueRightOrThrow());
+            Assert.Equal("test_mapped_mapped", result.RightValueOrThrow());
         }
 
         /// <summary>
@@ -485,7 +485,7 @@ namespace Hydrax.Functional.Tests.Run
                 .ToLeftResult();
 
             Assert.True(result.IsFailure);
-            Assert.Equal("test", result.FailureOrThrow());
+            Assert.Equal("test", result.FailureValueOrThrow());
         }
 
         /// <summary>
@@ -510,7 +510,7 @@ namespace Hydrax.Functional.Tests.Run
                 .ToRightResult();
 
             Assert.True(result.IsFailure);
-            Assert.Equal("test", result.FailureOrThrow());
+            Assert.Equal("test", result.FailureValueOrThrow());
         }
 
         /// <summary>

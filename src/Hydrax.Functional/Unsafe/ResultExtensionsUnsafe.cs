@@ -10,7 +10,7 @@ namespace Hydrax.Functional.Unsafe
         /// </summary>
         /// <param name="result">Result to get Failure value from.</param>
         /// <returns>Failure value.</returns>
-        public static TFailure FailureOrThrow<TFailure>(this Result<TFailure> result) 
+        public static TFailure FailureValueOrThrow<TFailure>(this Result<TFailure> result) 
         {
           if(result.IsFailure) { return result.FailureValue; }
 

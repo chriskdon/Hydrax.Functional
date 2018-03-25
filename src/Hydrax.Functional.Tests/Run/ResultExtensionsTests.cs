@@ -15,7 +15,7 @@ namespace Hydrax.Functional.Tests.Run
         {
             var failure = "test".Failure();
 
-            Assert.Equal("test", failure.FailureOrThrow());
+            Assert.Equal("test", failure.FailureValueOrThrow());
         }
 
         /// <summary>
@@ -265,7 +265,7 @@ namespace Hydrax.Functional.Tests.Run
             var result = Result.Failure()
                 .MapFailure<string>(() => "test");
 
-            Assert.Equal("test", result.FailureOrThrow());
+            Assert.Equal("test", result.FailureValueOrThrow());
         }
 
         /// <summary>
@@ -287,7 +287,7 @@ namespace Hydrax.Functional.Tests.Run
             var result = Result.Failure<string>("test")
                 .MapFailure(str => str + "_mapped");
 
-            Assert.Equal("test_mapped", result.FailureOrThrow());
+            Assert.Equal("test_mapped", result.FailureValueOrThrow());
         }
 
         /// <summary>
@@ -309,7 +309,7 @@ namespace Hydrax.Functional.Tests.Run
             var result = await Result.Failure()
                 .MapFailureAsync<string>(async () => "test");
 
-            Assert.Equal("test", result.FailureOrThrow());
+            Assert.Equal("test", result.FailureValueOrThrow());
         }
 
         /// <summary>
@@ -331,7 +331,7 @@ namespace Hydrax.Functional.Tests.Run
             var result = await Result.Failure("test")
                 .MapFailureAsync(async str => str + "_mapped");
 
-            Assert.Equal("test_mapped", result.FailureOrThrow());
+            Assert.Equal("test_mapped", result.FailureValueOrThrow());
         }
 
         /// <summary>
@@ -344,7 +344,7 @@ namespace Hydrax.Functional.Tests.Run
                 .MapFailureAsync<string>(async () => "test")
                 .MapFailureAsync(async str => str + "_mapped");
 
-            Assert.Equal("test_mapped", result.FailureOrThrow());
+            Assert.Equal("test_mapped", result.FailureValueOrThrow());
         }
 
         /// <summary>
@@ -357,7 +357,7 @@ namespace Hydrax.Functional.Tests.Run
                 .MapFailureAsync(async str => str + "_mapped")
                 .MapFailureAsync(async str => str + "_mapped");
 
-            Assert.Equal("test_mapped_mapped", result.FailureOrThrow());
+            Assert.Equal("test_mapped_mapped", result.FailureValueOrThrow());
         }
 
         /// <summary>
@@ -380,7 +380,7 @@ namespace Hydrax.Functional.Tests.Run
             var result = Result.Failure()
                 .FlatMapFailure<string>(() => "test".Failure());
 
-            Assert.Equal("test", result.FailureOrThrow());
+            Assert.Equal("test", result.FailureValueOrThrow());
         }
 
         /// <summary>
@@ -402,7 +402,7 @@ namespace Hydrax.Functional.Tests.Run
             var result = Result.Failure<string>("test")
                 .FlatMapFailure(str => (str + "_mapped").Failure());
 
-            Assert.Equal("test_mapped", result.FailureOrThrow());
+            Assert.Equal("test_mapped", result.FailureValueOrThrow());
         }
 
         /// <summary>
@@ -424,7 +424,7 @@ namespace Hydrax.Functional.Tests.Run
             var result = await Result.Failure()
                 .FlatMapFailureAsync<string>(async () => "test".Failure());
 
-            Assert.Equal("test", result.FailureOrThrow());
+            Assert.Equal("test", result.FailureValueOrThrow());
         }
 
         /// <summary>
@@ -446,7 +446,7 @@ namespace Hydrax.Functional.Tests.Run
             var result = await Result.Failure("test")
                 .FlatMapFailureAsync(async str => (str + "_mapped").Failure());
 
-            Assert.Equal("test_mapped", result.FailureOrThrow());
+            Assert.Equal("test_mapped", result.FailureValueOrThrow());
         }
 
         /// <summary>
@@ -459,7 +459,7 @@ namespace Hydrax.Functional.Tests.Run
                 .FlatMapFailureAsync<string>(async () => "test".Failure())
                 .FlatMapFailureAsync(async str => (str + "_mapped").Failure());
 
-            Assert.Equal("test_mapped", result.FailureOrThrow());
+            Assert.Equal("test_mapped", result.FailureValueOrThrow());
         }
 
         /// <summary>
@@ -472,7 +472,7 @@ namespace Hydrax.Functional.Tests.Run
                 .FlatMapFailureAsync(async str => (str + "_mapped").Failure())
                 .FlatMapFailureAsync(async str => (str + "_mapped").Failure());
 
-            Assert.Equal("test_mapped_mapped", result.FailureOrThrow());
+            Assert.Equal("test_mapped_mapped", result.FailureValueOrThrow());
         }
     }
 }

@@ -92,7 +92,9 @@ namespace Hydrax.Functional
         /// <param name="success">Function to call on Success.</param>
         /// <param name="failure">Function to call on Failure.</param>
         /// <returns>Result of success or failure function.</returns>
-        public static T Match<TFailure, T>(this Result<TFailure> result, Func<T> success, Func<TFailure, T> failure)
+        public static T Match<TFailure, T>(
+            this Result<TFailure> result, 
+            Func<T> success, Func<TFailure, T> failure)
         {
             if(result.IsSuccess) 
             {

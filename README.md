@@ -5,6 +5,12 @@
 A utility library that helps to support a functional style programming pattern
 while still remaining pragmatic and useful in C#.
 
+## Warning
+
+The libary is in it's very early stages of development so it is missing many
+required functions. It is also very unstable and the API is likeyly to change
+a lot.
+
 ## Optional
 
 A container that either holds `Some(T)` value or `None`.
@@ -13,8 +19,6 @@ A container that either holds `Some(T)` value or `None`.
 
 Note that most functions have an async alternative for working with `async`
 tasks.
-
-*TODO*
 
 #### Creating
 
@@ -102,7 +106,10 @@ var value = optional.ValueOrTrhow(() => new Exception("Error"));
 
 A container that either holds a `Left(T)` value or a `Right(T)` value.
 
-### Examples
+### Example Usage
+
+Note that most functions have an async alternative for working with `async`
+tasks.
 
 #### Creating
 
@@ -135,10 +142,6 @@ var mapRight = either.MapRight(right => right + 100);
 var flatMapLeft = either.FlatMapLeft(left => Optional.Some(left));
 var flatMapRight = either.FlatMapRight(right => Optional.Some(right));
 ```
-
-#### Filtering
-
-*TODO*
 
 #### Getting Values
 
@@ -202,6 +205,74 @@ var value = either.ValueRightOrThrow();
 A container that represents success or failure, the failure state can contain
 a value.
 
-### Examples
+### Example Usage
 
-*TODO*
+Note that most functions have an async alternative for working with `async`
+tasks.
+
+#### Creating
+
+```c#
+var success = Optional.Success();
+var failure = Optional.Failure(); 
+
+var failureWithValue = Optional.Failure("value");
+var failureWithValue = "value".Failure();
+```
+
+#### Properties
+
+```c#
+if(result.IsSuccess) {
+  // The result is a Success.
+}
+
+if(either.IsFailure) {
+  // The result is a Failure.
+}
+```
+
+#### Mapping
+
+```c#
+var mapFailure = result.MapFailure(fail => $"Some Failure: {fail}");
+
+var flatMapFailure = result.FlatMapFailure(fail => Result.Failure(fail));
+```
+
+#### Getting Values
+
+```c#
+var value = result.Match(() => "success", () => "failure");
+var value = result.Match(() => "success", fail => $"Failure: {fail}");
+```
+
+#### Performing Actions
+
+```c#
+result.Match(
+  () => {
+    Console.WriteLine($"Success");
+  },
+  () => {
+    Console.WriteLine($"Failure");
+  });
+
+result.Match(
+  () => {
+    Console.WriteLine($"Success");
+  },
+  failure => {
+    Console.WriteLine($"Failure({failure})");
+  });
+```
+
+#### Unsafe
+
+These functions may throw an exception when used.
+
+```c#
+using Hydrax.Functional.Unsafe;
+
+var failValue = either.ValueFailureOrThrow();
+```

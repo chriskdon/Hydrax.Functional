@@ -485,7 +485,7 @@ namespace Hydrax.Functional.Tests.Run
                 .ToLeftResult();
 
             Assert.True(result.IsFailure);
-            Assert.Equal("test", result.FailureOrThrow());
+            Assert.Equal("test", result.ValueFailureOrThrow());
         }
 
         /// <summary>
@@ -510,7 +510,7 @@ namespace Hydrax.Functional.Tests.Run
                 .ToRightResult();
 
             Assert.True(result.IsFailure);
-            Assert.Equal("test", result.FailureOrThrow());
+            Assert.Equal("test", result.ValueFailureOrThrow());
         }
 
         /// <summary>

@@ -19,6 +19,7 @@ Ideas and things to add to the project.
 - [ ] Extension methods to make operations more compatible with LINQ (e.g. SelectMany)
 - [ ] Some async functions exist purely to create cleaner looking calls but serve no real purpose currently. Must decide if these should stay or go. 
 - [ ] Function Composition
+  - [ ] Chaining (i.e. `Then`)
   - [X] Currying
   - [ ] Partial Application
     - [X] Partial Right 1 Free Arg

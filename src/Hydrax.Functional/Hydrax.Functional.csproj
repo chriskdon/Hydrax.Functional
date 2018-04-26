@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Title>Hydrax.Functional</Title>
-    <Version>0.1.1-alpha</Version>
+    <Version>0.1.2-alpha</Version>
     <Authors>Chris Kellendonk</Authors>
     <Product>Hydrax</Product>
     <Description>Library that supports functional programming patterns in C#.</Description>

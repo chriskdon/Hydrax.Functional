@@ -1,3 +1,5 @@
+generators/build
+
 # Code Coverage
 coverage.json
 coverage.xml

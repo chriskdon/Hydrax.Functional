@@ -1,0 +1,28 @@
+using System;
+
+namespace Hydrax.Functional {
+    public abstract class Union{{CLASS_GENERICS}}
+{{CLASS_CONSTRAINTS}}
+    {
+
+{{FN_FULL_MATCH}}
+        public TResult Match<T, TResult>(
+            Func<T, TResult> tFn, 
+            Func<TResult> otherwiseFn) where T : TBase
+        {
+            if(this is T t) { return tFn(t); }
+
+            return otherwiseFn();
+        }
+
+{{AC_FULL_MATCH}}
+        public void Match<T, TResult>(
+            Action<T> tAc, 
+            Action otherwiseAc) where T : TBase
+        {
+            if(this is T t) { tAc(t); }
+
+            otherwiseAc();
+        }
+    }
+}
